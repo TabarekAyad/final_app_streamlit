@@ -218,87 +218,21 @@ elif overal == "Teams":
 
         conf_df = stats[stats['CONFNAME'].isin(conf_selected_name)]
 
-        entity = st.sidebar.radio(
-            "Do you want to compare between conferences or teams of these conferences?",
-            ["Teams", "Conferences"], index=0,
-            captions = ["This will show teams alone", "This will show conferences alone"])
+        team_selected_m = st.sidebar.multiselect("Choose one or multiple teams", options=sorted(conf_df['TEAMNAME'].unique()), max_selections=5)
 
-        if entity == "Teams":
-
-            team_selected_m = st.sidebar.multiselect("Choose one or multiple teams", options=sorted(conf_df['TEAMNAME'].unique()), max_selections=5)
-
-            if team_selected_m:
+        if team_selected_m:
                 
-                # Filter the dataset to the teams selected only
+            # Filter the dataset to the teams selected only
 
-                conf_df = conf_df[conf_df["TEAMNAME"].isin(team_selected_m)]
+            conf_df = conf_df[conf_df["TEAMNAME"].isin(team_selected_m)]
 
-                measure_selected_m_1 = st.sidebar.selectbox("Choose one measure please", measure_dict["measure_name"], index=None, placeholder="Choose")
+            measure_selected_m_1 = st.sidebar.selectbox("Choose one measure please", measure_dict["measure_name"], index=None, placeholder="Choose")
 
-                if measure_selected_m_1:
+            if measure_selected_m_1:
                     
-                    measure = measure_dict[measure_dict["measure_name"] == measure_selected_m_1]["measure_id"].item()
+                measure = measure_dict[measure_dict["measure_name"] == measure_selected_m_1]["measure_id"].item()
 
-                    measure_type = measure_dict[measure_dict["measure_name"] == measure_selected_m_1]["measure_type2"].item()
-
-                    conf_df = conf_df[conf_df["SEASON"].between(season_range[0], season_range[1])]
-
-                    measure_values = conf_df.groupby('SEASON')[measure].agg(measure_type)
-
-                    min_value = measure_values.min()
-                    
-                    max_value = measure_values.max()
-
-                    # Define the chart
-                    line = alt.Chart(conf_df).mark_line().encode(
-                    x=alt.X('SEASON:N', title="Season"),
-                    y=alt.Y(
-                            measure,
-                            aggregate=measure_dict[measure_dict["measure_name"] == measure_selected_m_1]["measure_type1"].item(),
-                            type="quantitative",
-                            scale=alt.Scale(domain=(min_value*0.9, max_value*1.05)),
-                            title=measure_selected_m_1
-                        ),
-                        color='TEAMNAME:N'
-                    )
-
-                    # Add points
-                    point = alt.Chart(conf_df).mark_point().encode(
-                    x=alt.X('SEASON:N', title="Season"),
-                    y=alt.Y(
-                            measure,
-                            aggregate=measure_dict[measure_dict["measure_name"] == measure_selected_m_1]["measure_type1"].item(),
-                            type="quantitative",
-                            scale=alt.Scale(domain=(min_value, max_value)),
-                            title=measure_selected_m_1
-                        ),
-                        color='TEAMNAME:N'
-                    )
-
-                    # Layer the point chart on top of the line chart
-                    chart = alt.layer(line, point)
-
-                    # Add a title to the chart
-                    chart = chart.properties(
-                    title="Line chart with points of " + measure_selected_m_1 + " from the years selected ")
-
-                    # Display the chart
-                    st.altair_chart(chart, use_container_width=True)
-
-
-        else:
-
-            # Filtered dataset where it contains only the conference selected
-
-            conf_df = stats[stats['CONFNAME'].isin(conf_selected_name)]
-
-            measure_selected_m_m = st.sidebar.selectbox("Choose one measure please", measure_dict["measure_name"], index=None, placeholder="Choose")
-
-            if measure_selected_m_m:
-                    
-                measure = measure_dict[measure_dict["measure_name"] == measure_selected_m_m]["measure_id"].item()
-
-                measure_type = measure_dict[measure_dict["measure_name"] == measure_selected_m_m]["measure_type2"].item()
+                measure_type = measure_dict[measure_dict["measure_name"] == measure_selected_m_1]["measure_type2"].item()
 
                 conf_df = conf_df[conf_df["SEASON"].between(season_range[0], season_range[1])]
 
@@ -310,6 +244,66 @@ elif overal == "Teams":
 
                 # Define the chart
                 line = alt.Chart(conf_df).mark_line().encode(
+                     x=alt.X('SEASON:N', title="Season"),
+                     y=alt.Y(
+                            measure,
+                            aggregate=measure_dict[measure_dict["measure_name"] == measure_selected_m_1]["measure_type1"].item(),
+                            type="quantitative",
+                            scale=alt.Scale(domain=(min_value*0.9, max_value*1.05)),
+                            title=measure_selected_m_1
+                        ),
+                        color='TEAMNAME:N'
+                    )
+
+                # Add points
+                point = alt.Chart(conf_df).mark_point().encode(
+                      x=alt.X('SEASON:N', title="Season"),
+                      y=alt.Y(
+                            measure,
+                            aggregate=measure_dict[measure_dict["measure_name"] == measure_selected_m_1]["measure_type1"].item(),
+                            type="quantitative",
+                            scale=alt.Scale(domain=(min_value, max_value)),
+                            title=measure_selected_m_1
+                        ),
+                        color='TEAMNAME:N'
+                    )
+
+                # Layer the point chart on top of the line chart
+                chart = alt.layer(line, point)
+
+                # Add a title to the chart
+                chart = chart.properties(
+                      title="Line chart with points of " + measure_selected_m_1 + " from the years selected ")
+
+                # Display the chart
+                st.altair_chart(chart, use_container_width=True)
+
+
+else:
+    conf_selected_name = st.sidebar.multiselect("Choose one conference or multiple ones to compare. 5 maximum", options=sorted(stats['CONFNAME'].unique()), max_selections=5)
+
+    # Filtered dataset where it contains only the conference selected
+
+    conf_df = stats[stats['CONFNAME'].isin(conf_selected_name)]
+
+    measure_selected_m_m = st.sidebar.selectbox("Choose one measure please", measure_dict["measure_name"], index=None, placeholder="Choose")
+
+    if measure_selected_m_m:
+                    
+        measure = measure_dict[measure_dict["measure_name"] == measure_selected_m_m]["measure_id"].item()
+
+        measure_type = measure_dict[measure_dict["measure_name"] == measure_selected_m_m]["measure_type2"].item()
+
+        conf_df = conf_df[conf_df["SEASON"].between(season_range[0], season_range[1])]
+
+        measure_values = conf_df.groupby('SEASON')[measure].agg(measure_type)
+
+        min_value = measure_values.min()
+                    
+        max_value = measure_values.max()
+
+        # Define the chart
+        line = alt.Chart(conf_df).mark_line().encode(
                 x=alt.X('SEASON:N', title="Season"),
                 y=alt.Y(measure,
                         aggregate=measure_dict[measure_dict["measure_name"] == measure_selected_m_m]["measure_type1"].item(),
@@ -320,10 +314,10 @@ elif overal == "Teams":
                         color='CONFNAME:N'
                 )
 
-                # Add points
-                point = alt.Chart(conf_df).mark_point().encode(
-                x=alt.X('SEASON:N', title="Season"),
-                y=alt.Y(measure,
+        # Add points
+        point = alt.Chart(conf_df).mark_point().encode(
+              x=alt.X('SEASON:N', title="Season"),
+              y=alt.Y(measure,
                         aggregate=measure_dict[measure_dict["measure_name"] == measure_selected_m_m]["measure_type1"].item(),
                         type="quantitative",
                         scale=alt.Scale(domain=(min_value, max_value)),
@@ -332,12 +326,12 @@ elif overal == "Teams":
                         color='CONFNAME:N'
                 )
 
-                # Layer the point chart on top of the line chart
-                chart = alt.layer(line, point)
+        # Layer the point chart on top of the line chart
+        chart = alt.layer(line, point)
 
-                # Add a title to the chart
-                chart = chart.properties(
+        # Add a title to the chart
+        chart = chart.properties(
                 title="Line chart with points of " + measure_selected_m_m + " from the years selected")
 
-                # Display the chart
-                st.altair_chart(chart, use_container_width=True)
+        # Display the chart
+        st.altair_chart(chart, use_container_width=True)
