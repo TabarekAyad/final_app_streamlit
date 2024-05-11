@@ -33,6 +33,8 @@ measure_dict = load_data('data/measure_dict.csv')
 st.title("NCAA March Madness")
 st.subheader("Using Streamlit to build a website showing visualizations of NCAA March Madness")
 
+st.markdown("""*Please note that this app allows you to visualize and download the results""")
+
 st.markdown("""
             
             NCAA March Madness is the annual college basketball tournament organized by the National Collegiate Athletic Association (NCAA). It\'s a single-elimination tournament played each spring in the United States, featuring 68 college basketball teams from the Division I level of the NCAA, to determine the national championship.
@@ -97,6 +99,25 @@ with st.expander('About Streamlit'):
             """
             )
      st.image('https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.png', width=250)
+
+with st.expander('About Altair: the library we used to visualize our data'):
+     st.markdown(
+                """
+
+                Altair is a declarative statistical visualization library for Python. It’s built on top of the Vega and Vega-Lite visualization grammars, which describe the visual appearance and interactivity of visualizations in a JSON format.
+
+                Some key features of Altair:
+
+                Declarative: In Altair, you declare links between data columns and visual encoding channels, such as the x-axis, y-axis, and color. The rest of the plot details are handled automatically.
+                Consistent API: Altair provides a simple, friendly, and consistent API, which makes it easier to create a wide range of statistical visualizations.
+                Based on Vega-Lite: Altair visualizations are built on top of Vega-Lite, a high-level grammar of interactive graphics. This allows for a high degree of customizability and interactivity in the visualizations.
+
+                Source:\n
+                (1) [Vega-Altair: Declarative Visualization in Python](https://altair-viz.github.io/) \n
+                (2) [Altair in Python Tutorial: Data Visualizations](https://www.datacamp.com/tutorial/altair-in-python) \n
+
+            """
+            )
 
 
 with st.expander('The data used'):

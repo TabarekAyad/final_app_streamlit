@@ -1,6 +1,6 @@
 # NCAA ACC March Madness
 
-[![Click here to open the app on Steamlit]](https://.streamlit.app/)
+[Click here to open the app on Steamlit](https://.streamlit.app/)
 
 
 ## Introduction
@@ -22,6 +22,9 @@ It consists of:
 
 - **Home**: A landing page giving a brief explanation about Streamlit, the library we used to build the app with, as well as showing the data used for this project.
 
+- **Bar charts**: This page allows you to create bar charts to compare all the conferences and\or teams and years of your choice.
+
+- **Line Charts**: This page allows you to create line charts for all the conferences and\or teams and years of your choice.
 
 ## The data used 
 Clean data from my professor at UNCC [Chase Romano](https://www.linkedin.com/in/chase-romano-0aa4046b/) <br/>
@@ -30,8 +33,9 @@ and his Teaching Assistant [Joseph Burns](https://www.linkedin.com/in/joeburns91
 
 
 ## Future Work
-More visualizations to filter per team and season, add a visualization to show what activities contributed to the total score, and what features correlated to wins.
-As well as some styling touches.
+More visualizations.
+Style adjustment like responsiveness considerations.
+
 
 ## The Streamlit app
 https://.streamlit.app/

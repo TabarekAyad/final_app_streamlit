@@ -1,51 +1,51 @@
-﻿measure_id,measure_name,measure_type
-SCORE_MEAN,Mean Score,mean
-FGM_MEAN,Mean Field Goals Made,mean
-FGA_MEAN,Mean Field Goals Attempted,mean
-FGM3_MEAN,Mean Three-Point Field Goals Made,mean
-FGA3_MEAN,Mean Three-Point Field Goals Attempted,mean
-FTM_MEAN,Mean Free Throws Made,mean
-FTA_MEAN,Mean Free Throws Attempted,mean
-OR_MEAN,Mean Offensive Rebounds,mean
-DR_MEAN,Mean Defensive Rebounds,mean
-AST_MEAN,Mean Assists,mean
-TO_MEAN,Mean Turnovers,mean
-STL_MEAN,Mean Steals,mean
-BLK_MEAN,Mean Blocks,mean
-PF_MEAN,Mean Personal Fouls,mean
-SCORE_MEDIAN,Median Score,median
-FGM_MEDIAN,Median Field Goals Made,median
-FGA_MEDIAN,Median Field Goals Attempted,median
-FGM3_MEDIAN,Median Three-Point Field Goals Made,median
-FGA3_MEDIAN,Median Three-Point Field Goals Attempted,median
-FTM_MEDIAN,Median Free Throws Made,median
-FTA_MEDIAN,Median Free Throws Attempted,median
-OR_MEDIAN,Median Offensive Rebounds,median
-DR_MEDIAN,Median Defensive Rebounds,median
-AST_MEDIAN,Median Assists,median
-TO_MEDIAN,Median Turnovers,median
-STL_MEDIAN,Median Steals,median
-BLK_MEDIAN,Median Blocks,median
-PF_MEDIAN,Median Personal Fouls,median
-SCORE_STDDEV,Standard Deviation of Scores,stddev
-FGM_STDDEV,Standard Deviation of Field Goals Made,stddev
-FGA_STDDEV,Standard Deviation of Field Goals Attempted,stddev
-FGM3_STDDEV,Standard Deviation Three-Point Field Goals Made,stddev
-FGA3_STDDEV,Standard Deviation of Three-Point Field Goals Attempted,stddev
-FTM_STDDEV,Standard Deviation of Free Throws Made,stddev
-FTA_STDDEV,Standard Deviation of Free Throws Attempted,stddev
-OR_STDDEV,Standard Deviation of Offensive Rebounds,stddev
-DR_STDDEV,Standard Deviation of Defensive Rebounds,stddev
-AST_STDDEV,Standard Deviation of Assists,stddev
-TO_STDDEV,Standard Deviation of Turnovers,stddev
-STL_STDDEV,Standard Deviation of Steals,stddev
-BLK_STDDEV,Standard Deviation of Blocks,stddev
-PF_STDDEV,Standard Deviation of Personal Fouls,stddev
-WLOCN,Sum Neutral Wins,sum
-WLOCH,Sum Home Wins,sum
-WLOCA,Sum Away Wins,sum
-WINMARGINMEDIAN,Median Win Margin,median
-WINMARGINMEAN,Mean Win Margin,mean
-LOSEMARGINMEDIAN,Median Loss Margin,median
-LOSEMARGINMEAN,Mean Loss Margin,mean
-TOTAL_WINS,Sum Total Wins,sum
+﻿measure_id,measure_name,measure_type1,measure_type2
+SCORE_MEAN,Mean Score,mean,mean
+FGM_MEAN,Mean Field Goals Made,mean,mean
+FGA_MEAN,Mean Field Goals Attempted,mean,mean
+FGM3_MEAN,Mean Three-Point Field Goals Made,mean,mean
+FGA3_MEAN,Mean Three-Point Field Goals Attempted,mean,mean
+FTM_MEAN,Mean Free Throws Made,mean,mean
+FTA_MEAN,Mean Free Throws Attempted,mean,mean
+OR_MEAN,Mean Offensive Rebounds,mean,mean
+DR_MEAN,Mean Defensive Rebounds,mean,mean
+AST_MEAN,Mean Assists,mean,mean
+TO_MEAN,Mean Turnovers,mean,mean
+STL_MEAN,Mean Steals,mean,mean
+BLK_MEAN,Mean Blocks,mean,mean
+PF_MEAN,Mean Personal Fouls,mean,mean
+SCORE_MEDIAN,Median Score,median,median
+FGM_MEDIAN,Median Field Goals Made,median,median
+FGA_MEDIAN,Median Field Goals Attempted,median,median
+FGM3_MEDIAN,Median Three-Point Field Goals Made,median,median
+FGA3_MEDIAN,Median Three-Point Field Goals Attempted,median,median
+FTM_MEDIAN,Median Free Throws Made,median,median
+FTA_MEDIAN,Median Free Throws Attempted,median,median
+OR_MEDIAN,Median Offensive Rebounds,median,median
+DR_MEDIAN,Median Defensive Rebounds,median,median
+AST_MEDIAN,Median Assists,median,median
+TO_MEDIAN,Median Turnovers,median,median
+STL_MEDIAN,Median Steals,median,median
+BLK_MEDIAN,Median Blocks,median,median
+PF_MEDIAN,Median Personal Fouls,median,median
+SCORE_STDDEV,Standard Deviation of Scores,stdev,std
+FGM_STDDEV,Standard Deviation of Field Goals Made,stdev,std
+FGA_STDDEV,Standard Deviation of Field Goals Attempted,stdev,std
+FGM3_STDDEV,Standard Deviation Three-Point Field Goals Made,stdev,std
+FGA3_STDDEV,Standard Deviation of Three-Point Field Goals Attempted,stdev,std
+FTM_STDDEV,Standard Deviation of Free Throws Made,stdev,std
+FTA_STDDEV,Standard Deviation of Free Throws Attempted,stdev,std
+OR_STDDEV,Standard Deviation of Offensive Rebounds,stdev,std
+DR_STDDEV,Standard Deviation of Defensive Rebounds,stdev,std
+AST_STDDEV,Standard Deviation of Assists,stdev,std
+TO_STDDEV,Standard Deviation of Turnovers,stdev,std
+STL_STDDEV,Standard Deviation of Steals,stdev,std
+BLK_STDDEV,Standard Deviation of Blocks,stdev,std
+PF_STDDEV,Standard Deviation of Personal Fouls,stdev,std
+WLOCN,Count of Neutral Wins,count,count
+WLOCH,Count of Home Wins,count,count
+WLOCA,Count of Away Wins,count,count
+WINMARGINMEDIAN,Median Win Margin,median,median
+WINMARGINMEAN,Mean Win Margin,mean,mean
+LOSEMARGINMEDIAN,Median Loss Margin,median,median
+LOSEMARGINMEAN,Mean Loss Margin,mean,mean
+TOTAL_WINS,Count of Total Wins,count,count
