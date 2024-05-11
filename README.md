@@ -1,6 +1,6 @@
 # NCAA ACC March Madness
 
-[Click here to open the app on Steamlit](https://.streamlit.app/)
+[Click here to open the app on Steamlit](https://ncaa-march-madness.streamlit.app/)
 
 
 ## Introduction
@@ -38,4 +38,4 @@ Style adjustment like responsiveness considerations.
 
 
 ## The Streamlit app
-https://.streamlit.app/
+https://ncaa-march-madness.streamlit.app/
